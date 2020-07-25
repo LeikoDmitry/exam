@@ -1,6 +1,6 @@
 ## Using docker-compose
 
-The first you should to change `.env.example` to `.env` and add your values.
+The first you should change `.env.example` to `.env` and add your values.
 
 This application provides a `docker-compose.yml` for use with
 [docker-compose](https://docs.docker.com/compose/) it
