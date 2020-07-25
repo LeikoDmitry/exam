@@ -1,0 +1,6 @@
+.idea
+docker/mysql
+docker/php/log
+.env
+.phpcs-cache
+vendor

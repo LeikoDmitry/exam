@@ -1,0 +1,32 @@
+{% extends 'base.twig' %}
+{% block title %}Main Page{% endblock %}
+{% block content %}
+    {% if not user %}
+        <div class="unauthorized">
+            <a href="/login">You need login</a>
+        </div>
+    {% else %}
+        <table>
+            <tr>
+                <th rowspan="2">
+                    <h3>Hello - {{ user.username|escape }}</h3>
+                    <p><a href="/logout">Logout</a></p>
+                </th>
+                <th>Balance</th>
+                <th>Date Created</th>
+                <th>Actions</th>
+            </tr>
+            <tr>
+                <td>{{ user.balance|number_format(2, '.', ',') }}</td>
+                <td>{{ user.created_at|date('Y-m-d')  }}</td>
+                <td>
+                    <form method="post" action="/payout">
+                        <input name="amount" placeholder="{{ user.balance|number_format(2, '.', ',') }}">
+                        <input name="user_id" type="hidden" value="{{ user.id }}">
+                        <button type="submit">Payout</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    {% endif %}
+{% endblock %}

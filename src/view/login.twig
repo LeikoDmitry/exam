@@ -1,0 +1,21 @@
+{% extends 'base.twig' %}
+{% block title %}Main Page{% endblock %}
+{% block content %}
+    <form method="post">
+        <table>
+            <tr>
+                <th rowspan="2"><h3>Login</h3></th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Actions</th>
+            </tr>
+            <tr>
+                <td><input name="email" placeholder="example@gmail.com"></td>
+                <td><input name="password" placeholder="Some password"></td>
+                <td>
+                    <button type="submit">Login</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+{% endblock %}
