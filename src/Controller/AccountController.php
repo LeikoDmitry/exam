@@ -35,7 +35,6 @@ class AccountController
         $user = '';
 
         if ($request->isMethod('POST')) {
-
             return new RedirectResponse('/');
         }
 
@@ -90,7 +89,6 @@ class AccountController
     public function payout(Request $request): Response
     {
         if (! $request->isMethod('POST')) {
-
             return new RedirectResponse('/');
         }
 
@@ -98,7 +96,6 @@ class AccountController
         $userId  = $session->get(static::USER_SESSION_KEY, false);
 
         if (! $request->hasSession() || ! $userId) {
-
             return new RedirectResponse('/');
         }
 
@@ -106,7 +103,6 @@ class AccountController
         $form->setData($request->request);
 
         if (! $form->isValid()) {
-
             return new RedirectResponse('/');
         }
 
