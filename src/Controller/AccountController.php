@@ -35,6 +35,7 @@ class AccountController
         $user = '';
 
         if ($request->isMethod('POST')) {
+
             return new RedirectResponse('/');
         }
 
@@ -63,6 +64,7 @@ class AccountController
                 $data = $form->getData();
                 $user = $this->accountService->getUserByEmail($data['email']);
                 $request->getSession()->set(static::USER_SESSION_KEY, $user->getId());
+
                 return new RedirectResponse('/');
             }
             //TODO show the flash message
@@ -88,6 +90,7 @@ class AccountController
     public function payout(Request $request): Response
     {
         if (! $request->isMethod('POST')) {
+
             return new RedirectResponse('/');
         }
 
@@ -95,6 +98,7 @@ class AccountController
         $userId  = $session->get(static::USER_SESSION_KEY, false);
 
         if (! $request->hasSession() || ! $userId) {
+
             return new RedirectResponse('/');
         }
 
@@ -102,6 +106,7 @@ class AccountController
         $form->setData($request->request);
 
         if (! $form->isValid()) {
+
             return new RedirectResponse('/');
         }
 
